@@ -22,7 +22,8 @@ import { html } from './gulp/tasks/html.js';
 import { server } from './gulp/tasks/server.js';
 import { scss } from './gulp/tasks/scss.js';
 import { js } from './gulp/tasks/js.js';
-import { imgRetina, img, favicon } from './gulp/tasks/img.js';
+// import { imgRetina, img, favicon } from './gulp/tasks/img.js';
+import { imgRetina, favicon } from './gulp/tasks/img.js';
 import { fonts, fontScss } from './gulp/tasks/fonts.js';
 import { spriteSvg } from './gulp/tasks/svg.js';
 import { zip } from './gulp/tasks/zip.js';
@@ -34,13 +35,14 @@ function watcher() {
    gulp.watch(path.watch.scss, scss);
    gulp.watch(path.watch.js, js);
    gulp.watch(path.watch.img, imgRetina);
-   gulp.watch(path.watch.img, img);
+   // gulp.watch(path.watch.img, img);
    gulp.watch(path.watch.img, favicon);
    gulp.watch(path.watch.spriteSvg, spriteSvg);
 }
 
 const font = gulp.series(fonts, fontScss);
-const images = gulp.series(imgRetina, img, spriteSvg, favicon);
+// const images = gulp.series(imgRetina, img, spriteSvg, favicon);
+const images = gulp.series(imgRetina, spriteSvg, favicon);
 const mainTasks = gulp.series(font, gulp.parallel(copy, html, scss, js, images));
 
 // dev assembly
