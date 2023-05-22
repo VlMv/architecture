@@ -22,7 +22,11 @@
       }
    }
 
-   &__media {
+   // &_pointer {
+   //    pointer-events: none;
+   // }
+
+   &__content {
       position: relative;
       width: calc(var(--viewport-size-index) * var(--small-size-index));
       height: calc(var(--viewport-size-index) * var(--big-size-index));
