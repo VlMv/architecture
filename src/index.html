@@ -6,9 +6,50 @@
 <body>
 
    <main>
-gogog
+      <div class="container">
+         <div class="main-galery">
 
+            <div class="frame-box">
+               <h1 class="visually-hidden">the modern architecture studio</h1>
+               <p class="page-title">architecture<span>modern solutions</span></p>
+            </div>
 
+            <section class="hero">
+               <h2 class="visually-hidden">architecture design services</h2>
+               <div class="frame-box">
+                  <div class="frame-box__media frame-box__media_left">
+                     @@include('html/picture.html', {
+                     "path": {
+                     "desktop":"@img/scroll/hero",
+                     "mobile":"@img/scroll/hero-mobile"
+                     },
+                     "type": {
+                     "webp": ".webp",
+                     "jpg": ".jpg"
+                     },
+                     "alt":"the studio work photography"
+                     })
+                  </div>
+               </div>
+               <div class="frame-box frame-box_bg-clr">
+                  <div class="frame-box__media frame-box__media_horizontal frame-box__media_horizontal_right">
+                     @@include('html/picture.html', {
+                     "path": {
+                     "desktop":"@img/scroll/hero-2",
+                     "mobile":"@img/scroll/hero-2-mobile"
+                     },
+                     "type": {
+                     "webp": ".webp",
+                     "jpg": ".jpg"
+                     },
+                     "alt":"the studio work photography"
+                     })
+                  </div>
+               </div>
+            </section>
+
+         </div>
+      </div>
    </main>
 
 </body>

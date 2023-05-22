@@ -1,3 +1,16 @@
 :root {
-   --clr-dark: #202020;
+   // system
+   --viewport-size-index: calc(1vw + 1vh);
+   --shift: 30px;
+   --small-size-index: 26;
+   --big-size-index: 36;
+   --transition: .75s cubic-bezier(.075, .5, 0, 1);
+
+   // colors
+   --clr-bg-black: #000;
+   --clr-font-white: #fff;
+
+   // fonts
+   --font-raleway: "Raleway", arial, sans-serif;
+   --font-roboto: "Roboto", arial, sans-serif;
 }
