@@ -22,6 +22,28 @@
       }
    }
 
+   &__masked-screen {
+      position: absolute;
+      width: calc(var(--viewport-size-index) * 300);
+      height: calc(var(--viewport-size-index) * 300);
+      background-color: #000;
+      background-image: url("@img/INFINITY-copy.svg");
+      background-repeat: no-repeat;
+      background-position: 49% 50%;
+      background-size: 15%;
+      transform-style: preserve-3d;
+      -webkit-mask-image: linear-gradient(#000 0 0), url("@img/INFINITY.svg");
+      -webkit-mask-size: 100%, 15%;
+      -webkit-mask-position: 49% 50%;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-composite: xor;
+      mask-image: linear-gradient(#000 0 0), url("@img/INFINITY.svg");
+      mask-size: 100%, 15%;
+      mask-position: 50%;
+      mask-repeat: no-repeat;
+      mask-composite: exclude;
+   }
+
    // &_pointer {
    //    pointer-events: none;
    // }

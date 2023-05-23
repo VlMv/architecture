@@ -1,0 +1,37 @@
+.portfolio-list {
+   position: absolute;
+   display: grid;
+   grid-auto-columns: 15vw;
+   grid-template-columns: repeat(8, 15vw);
+   gap: 5vw;
+   width: calc(var(--viewport-size-index) * 150);
+   height: calc(var(--viewport-size-index) * 150);
+   padding: 5vw;
+
+   // transition: transform 1s cubic-bezier(.075, 1, .25, 1), opacity 1s;
+   will-change: transform;
+   place-content: center;
+
+   @media (width <=600px) {
+      grid-template-columns: repeat(8, 40vw);
+   }
+
+   &__items-box {
+      display: grid;
+      row-gap: 5vw;
+   }
+
+   &__item {
+      transition: transform var(--transition);
+
+      &:hover {
+         transform: scale(1.1);
+      }
+
+      & img {
+         display: block;
+         width: 100%;
+         border-radius: 4px;
+      }
+   }
+}

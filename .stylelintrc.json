@@ -18,7 +18,14 @@
       "property-no-vendor-prefix": [
          true,
          {
-            "ignoreProperties": ["mask-image", "mask"]
+            "ignoreProperties": [
+               "mask-image",
+               "mask",
+               "mask-size",
+               "mask-position",
+               "mask-repeat",
+               "mask-composite"
+            ]
          }
       ]
    },

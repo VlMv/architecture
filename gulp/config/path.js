@@ -10,7 +10,7 @@ export const path = {
       html: `${buildFldr}/`,
       scss: `${buildFldr}/css`,
       js: `${buildFldr}/js`,
-      files: `${buildFldr}/files/`,
+      files: `${buildFldr}/js/libs/`,
       img: `${buildFldr}/img/`,
       fonts: `${buildFldr}/fonts/`,
    },
@@ -18,7 +18,7 @@ export const path = {
       html: `${srcFldr}/*.html`,
       scss: `${srcFldr}/scss/style.scss`,
       js: `${srcFldr}/js/app.js`,
-      files: `${srcFldr}/files/**/*.*`,
+      files: `${srcFldr}/js/libs/*.js`,
       img: `${srcFldr}/img/**/*.{jpeg,jpg,png,gif,webp}`,
       // doesn't convert background images to WEBP
       imgNoBg: [`${srcFldr}/img/**/*.{jpeg,jpg,png,gif,webp}`,
