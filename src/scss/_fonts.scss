@@ -1,8 +1,24 @@
 @font-face {
+   font-weight: 700;
+   font-family: Raleway;
+   font-style: normal;
+   src: url("../fonts/raleway-bold.woff2")format("woff2"), url("../fonts/raleway-bold.woff")format("woff");
+   font-display: swap;
+}
+
+@font-face {
    font-weight: 300;
    font-family: Raleway;
    font-style: normal;
    src: url("../fonts/raleway-light.woff2")format("woff2"), url("../fonts/raleway-light.woff")format("woff");
+   font-display: swap;
+}
+
+@font-face {
+   font-weight: 600;
+   font-family: Raleway;
+   font-style: normal;
+   src: url("../fonts/raleway-semibold.woff2")format("woff2"), url("../fonts/raleway-semibold.woff")format("woff");
    font-display: swap;
 }
 
@@ -19,21 +35,5 @@
    font-family: Roboto;
    font-style: normal;
    src: url("../fonts/roboto-light.woff2")format("woff2"), url("../fonts/roboto-light.woff")format("woff");
-   font-display: swap;
-}
-
-@font-face {
-   font-weight: 400;
-   font-family: Roboto;
-   font-style: normal;
-   src: url("../fonts/roboto-regular.woff2")format("woff2"), url("../fonts/roboto-regular.woff")format("woff");
-   font-display: swap;
-}
-
-@font-face {
-   font-weight: 100;
-   font-family: Roboto;
-   font-style: normal;
-   src: url("../fonts/roboto-thin.woff2")format("woff2"), url("../fonts/roboto-thin.woff")format("woff");
    font-display: swap;
 }

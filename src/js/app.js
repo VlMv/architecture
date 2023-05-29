@@ -2,7 +2,7 @@ let frames = document.querySelectorAll('.frame-box');
 const bodyPage = document.querySelector('body');
 
 const zDepthDistance = -1000;
-const zChangeSpeedMultiplier = -5; // множитель на прокрутку transform по оси Z по сравнению с прокруткой scroll в body
+const zChangeSpeedMultiplier = -5; // множитель на прокрутку transform по оси Z по сравнению с прокруткой scroll в body (скорость z скролла)
 let zDistancesArray = [];
 
 
@@ -38,47 +38,50 @@ window.onresize = function () {
 
 
 // let maskedItem = document.querySelector('.colored-img');
-
 let lastScrollPosition = 0;
 
 window.onscroll = function () {
+
    let scrollTop = document.documentElement.scrollTop;
    let positionsDelta = lastScrollPosition - scrollTop;
    lastScrollPosition = scrollTop;
 
-   frames.forEach(function (n, i, frames) {
-      let frame = frames[i];
-      const portfolioFrameIndex = frames.length - 1;
-      const maskedScreenFrameIndex = frames.length - 2;
+   frames.forEach(function (frame, i, frames) {
+      let portfolioFrameIndex = frames.length - 1;
+      let isNotPortfolioFrame = i !== frames.length - 1;
+      let isNotMaskedScreenFrame = i !== frames.length - 2;
 
       zDistancesArray[i] += positionsDelta * zChangeSpeedMultiplier;
 
       let opacity = zDistancesArray[i] < Math.abs(zDepthDistance) / 1.8 ? 1 : 0;
       let zTransform = `translateZ(${zDistancesArray[i]}px)`;
 
-      if (i !== maskedScreenFrameIndex && i !== portfolioFrameIndex) {
+      if (isNotPortfolioFrame && isNotMaskedScreenFrame) {
          frame.setAttribute('style', `transform: ${zTransform}; opacity: ${opacity};`);
       } else {
          frame.setAttribute('style', `transform: ${zTransform};`);
       }
 
+
+
       // if (frame.hasAttribute('data-masked-image') && (zDistancesArray[i] >= zDepthDistance * 1.5)) {
       //    maskedItem.classList.add('colored-img_masked');
       // }
 
-      let SixFramesRange = zDistancesArray[i] >= zDepthDistance * 5;
-      let frameDidNotPassScreen = zDistancesArray[i] <= Math.abs(zDepthDistance);
-      let portfolioGalleryInSightRange = zDistancesArray[portfolioFrameIndex] >= zDepthDistance * 6.5;
+      let isPortfolioFrame = i === frames.length - 1;
+      let portfolioGalleryVisibleRange = zDistancesArray[portfolioFrameIndex] >= zDepthDistance * 6.5;
+      let fiveFramesVisibleRange = zDistancesArray[i] >= zDepthDistance * 4;
+      let frameBeyondScreenRange = zDistancesArray[i] <= Math.abs(zDepthDistance);
 
-      if (i === portfolioFrameIndex) {
-         if (portfolioGalleryInSightRange) {
+      if (isPortfolioFrame) {
+         if (portfolioGalleryVisibleRange) {
             frame.classList.remove('hidden');
          } else {
             frame.classList.add('hidden');
          }
 
       } else {
-         if (SixFramesRange && frameDidNotPassScreen) {
+         if (fiveFramesVisibleRange && frameBeyondScreenRange) {
             frame.classList.remove('hidden');
          } else {
             frame.classList.add('hidden');
@@ -86,6 +89,43 @@ window.onscroll = function () {
       }
    });
 }
+
+
+const navLinks = document.querySelectorAll('.main-nav__item > a');
+let navScrollData = {
+   dataNames: ["data-portfolio-works", "data-about", "data-team", "data-concepts", "data-portfolio-gallery"],
+
+   scrollToFrame: function (navLink) {
+      for (let i = 0; i < this.dataNames.length; i++) {
+         if (navLink.hasAttribute(this.dataNames[i])) {
+            window.scrollTo(0, this.getTopScrollHeight(this.dataNames[i]));
+         }
+      }
+   },
+
+   getTopScrollHeight: function (DataName) {
+      for (let i = 0; i < frames.length; i++) {
+         let isTheLastFrame = i === frames.length - 1;
+
+         if (frames[i].hasAttribute(DataName)) {
+            let topScrollHeight = i * Math.abs(zDepthDistance) / Math.abs(zChangeSpeedMultiplier);
+
+            if (isTheLastFrame) {
+               return topScrollHeight += Math.abs(zDepthDistance) // потому что расстояние между последним и предпоследним фреймом больше на значение zDepthDistance
+            }
+
+            return topScrollHeight
+         }
+      }
+   }
+};
+
+navLinks.forEach(function (navLink) {
+   navLink.onclick = function () {
+      navScrollData.scrollToFrame(navLink);
+   }
+});
+
 
 document.onreadystatechange = function () {
    // page fully load

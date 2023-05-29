@@ -5,13 +5,15 @@
 
 <body>
 
+@@include('html/header.html')
+
    <main>
       <div class="container">
          <div class="main-gallery">
 
-            <div class="frame-box">
+            <div class="frame-box frame-box_bg-clr">
                <h1 class="visually-hidden">the modern architecture studio</h1>
-               <p class="page-title">architecture<span>modern solutions</span></p>
+               <p class="page-title">architecture <span>modern solutions</span></p>
             </div>
 
             <section class="hero">
@@ -50,12 +52,14 @@
 
             <div class="frame-box"></div>
 
-            <section class="portfolio-works">
+            <section class="portfolio-works" >
                <h2 class="visually-hidden">the studio portfolio</h2>
-               <div class="frame-box">
+               <div class="frame-box" data-portfolio-works>
                   <div class="frame-box__content frame-box__content_right">
-                     <p class="section-title">Pure planet</p>
-                     <p class="text">Lorem ipsum dolor sit amet, consectetur elit adipisicing. Nemo fugit, rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus.</p>
+                     <div class="frame-box__text-content">
+                        <p class="section-title">Pure design</p>
+                        <p class="text">Lorem ipsum dolor sit amet, consectetur elit adipisicing. Nemo fugit, rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus.</p>
+                     </div>
                   </div>
                </div>
                <div class="frame-box frame-box_bg-clr">
@@ -110,12 +114,14 @@
 
             <div class="frame-box"></div>
 
-            <section class="about">
+            <section class="about" >
                <h2 class="visually-hidden">about the studio</h2>
-               <div class="frame-box">
+               <div class="frame-box" data-about>
                   <div class="frame-box__content frame-box__content_left">
-                     <p class="section-title">About office</p>
-                     <p class="text">Lorem ipsum dolor sit amet, consectetur elit. Rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus omnis quae eaque aliquam esse unde accusamus dolores non soluta.</p>
+                     <div class="frame-box__text-content frame-box__text-content_left">
+                        <p class="section-title">About the office</p>
+                        <p class="text">Lorem ipsum dolor sit amet, consectetur elit. Rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus omnis quae eaque aliquam esse unde accusamus dolores non soluta.</p>
+                     </div>
                   </div>
                </div>
                <div class="frame-box frame-box_bg-clr">
@@ -175,13 +181,15 @@
             <div class="frame-box"></div>
             <div class="frame-box"></div>
 
-            <section class="team">
+            <section class="team" >
                <h2 class="visually-hidden">about the team</h2>
-               <div class="frame-box">
+               <div class="frame-box" data-team>
                   <div class="frame-box__content frame-box__content_right">
-                     <p class="section-title">About the team</p>
-                     <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis et commodi possimus quo eos optio quis laudantium neque. Eaque, atque!</p>
-                     <p class="text">Eaque, recusandae natus aliquam illo amet ipsam. Lorem ipsum dolor sit amet consectetur. Explicabo laboriosam nihil vitae dicta molestias! Veritatis quos perferendis hic distinctio beatae, laudantium, at dicta suscipit eaque vitae deleniti reprehenderit!</p>
+                     <div class="frame-box__text-content">
+                        <p class="section-title">About the team</p>
+                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis et commodi possimus quo eos optio quis laudantium neque. Eaque, atque!</p>
+                        <p class="text">Eaque, recusandae natus aliquam illo amet ipsam. Lorem ipsum dolor sit amet consectetur. Explicabo laboriosam nihil vitae dicta molestias! Veritatis quos perferendis hic distinctio beatae, laudantium, at dicta suscipit eaque vitae deleniti reprehenderit!</p>
+                     </div>
                   </div>
                </div>
                <div class="frame-box frame-box_bg-clr">
@@ -242,10 +250,12 @@
 
             <section class="concepts">
                <h2 class="visually-hidden">architecture concepts</h2>
-               <div class="frame-box">
+               <div class="frame-box" data-concepts>
                   <div class="frame-box__content frame-box__content_left">
-                     <p class="section-title">Concepts beyond</p>
-                     <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repellat quaerat dolorum ipsam odit cum, sapiente similique culpa corporis dolores perferendis? Aut, et.</p>
+                     <div class="frame-box__text-content frame-box__text-content_left">
+                        <p class="section-title">Concepts beyond</p>
+                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repellat quaerat dolorum ipsam odit cum, sapiente similique culpa corporis dolores perferendis? Aut, et.</p>
+                     </div>
                   </div>
                </div>
                <div class="frame-box frame-box_bg-clr">
@@ -348,7 +358,7 @@
                <div class="frame-box__masked-screen"></div>
             </div>
 
-            <div class="frame-box">
+            <div class="frame-box" data-portfolio-gallery>
                <section class="portfolio-gallery">
                   <h2 class="visually-hidden">More our works</h2>
                   <ul class="portfolio-list list-reset">
@@ -382,8 +392,285 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/3",
+                           "mobile":"@img/draggable/3-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/4",
+                           "mobile":"@img/draggable/4-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/5",
+                           "mobile":"@img/draggable/5-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/6",
+                           "mobile":"@img/draggable/6-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/7",
+                           "mobile":"@img/draggable/7-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/8",
+                           "mobile":"@img/draggable/8-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/9",
+                           "mobile":"@img/draggable/9-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/10",
+                           "mobile":"@img/draggable/10-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                     </li>
+                     <li class="portfolio-list__items-box">
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/18",
+                           "mobile":"@img/draggable/18-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/12",
+                           "mobile":"@img/draggable/12-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/15",
+                           "mobile":"@img/draggable/15-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/11",
+                           "mobile":"@img/draggable/11-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/17",
+                           "mobile":"@img/draggable/17-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/14",
+                           "mobile":"@img/draggable/14-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/13",
+                           "mobile":"@img/draggable/13-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/19",
+                           "mobile":"@img/draggable/19-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/16",
+                           "mobile":"@img/draggable/16-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/20",
+                           "mobile":"@img/draggable/20-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                     </li>
+                     <li class="portfolio-list__items-box">
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/5",
+                           "mobile":"@img/draggable/5-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/7",
+                           "mobile":"@img/draggable/7-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/10",
+                           "mobile":"@img/draggable/10-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/4",
+                           "mobile":"@img/draggable/4-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -408,8 +695,259 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/3",
+                           "mobile":"@img/draggable/3-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/9",
+                           "mobile":"@img/draggable/9-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/6",
+                           "mobile":"@img/draggable/6-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/2",
+                           "mobile":"@img/draggable/2-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/8",
+                           "mobile":"@img/draggable/8-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                     </li>
+                     <li class="portfolio-list__items-box">
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/12",
+                           "mobile":"@img/draggable/12-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/19",
+                           "mobile":"@img/draggable/19-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/14",
+                           "mobile":"@img/draggable/14-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/13",
+                           "mobile":"@img/draggable/13-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/16",
+                           "mobile":"@img/draggable/16-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/11",
+                           "mobile":"@img/draggable/11-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/20",
+                           "mobile":"@img/draggable/20-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/15",
+                           "mobile":"@img/draggable/15-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/17",
+                           "mobile":"@img/draggable/17-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/18",
+                           "mobile":"@img/draggable/18-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                     </li>
+                     <li class="portfolio-list__items-box">
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/10",
+                           "mobile":"@img/draggable/10-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/7",
+                           "mobile":"@img/draggable/7-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/4",
+                           "mobile":"@img/draggable/4-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/3",
+                           "mobile":"@img/draggable/3-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/8",
+                           "mobile":"@img/draggable/8-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -434,8 +972,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/9",
+                           "mobile":"@img/draggable/9-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -447,8 +985,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/2",
+                           "mobile":"@img/draggable/2-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -460,8 +998,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/5",
+                           "mobile":"@img/draggable/5-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -473,8 +1011,140 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/6",
+                           "mobile":"@img/draggable/6-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                     </li>
+                     <li class="portfolio-list__items-box">
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/20",
+                           "mobile":"@img/draggable/20-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/12",
+                           "mobile":"@img/draggable/12-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/17",
+                           "mobile":"@img/draggable/17-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/13",
+                           "mobile":"@img/draggable/13-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/19",
+                           "mobile":"@img/draggable/19-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/15",
+                           "mobile":"@img/draggable/15-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/14",
+                           "mobile":"@img/draggable/14-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/11",
+                           "mobile":"@img/draggable/11-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/18",
+                           "mobile":"@img/draggable/18-mobile"
+                           },
+                           "type": {
+                           "webp": ".webp",
+                           "jpg": ".jpg"
+                           },
+                           "alt":"a portfolio work"
+                           })
+                        </a>
+                        <a class="portfolio-list__item" href="">
+                           @@include('html/picture.html', {
+                           "path": {
+                           "desktop":"@img/draggable/16",
+                           "mobile":"@img/draggable/16-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -514,8 +1184,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/3",
+                           "mobile":"@img/draggable/3-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -527,8 +1197,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/4",
+                           "mobile":"@img/draggable/4-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -540,8 +1210,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/5",
+                           "mobile":"@img/draggable/5-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -553,8 +1223,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/6",
+                           "mobile":"@img/draggable/6-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -566,8 +1236,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/7",
+                           "mobile":"@img/draggable/7-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -579,8 +1249,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/8",
+                           "mobile":"@img/draggable/8-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -592,8 +1262,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/9",
+                           "mobile":"@img/draggable/9-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -605,140 +1275,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                     </li>
-                     <li class="portfolio-list__items-box">
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/2",
-                           "mobile":"@img/draggable/2-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/10",
+                           "mobile":"@img/draggable/10-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -752,8 +1290,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/18",
+                           "mobile":"@img/draggable/18-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -765,8 +1303,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/2",
-                           "mobile":"@img/draggable/2-mobile"
+                           "desktop":"@img/draggable/12",
+                           "mobile":"@img/draggable/12-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -778,8 +1316,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/15",
+                           "mobile":"@img/draggable/15-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -791,8 +1329,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/11",
+                           "mobile":"@img/draggable/11-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -804,8 +1342,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/17",
+                           "mobile":"@img/draggable/17-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -817,8 +1355,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/14",
+                           "mobile":"@img/draggable/14-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -830,8 +1368,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/13",
+                           "mobile":"@img/draggable/13-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -843,8 +1381,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/19",
+                           "mobile":"@img/draggable/19-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -856,8 +1394,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/16",
+                           "mobile":"@img/draggable/16-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -869,536 +1407,8 @@
                         <a class="portfolio-list__item" href="">
                            @@include('html/picture.html', {
                            "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                     </li>
-                     <li class="portfolio-list__items-box">
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/2",
-                           "mobile":"@img/draggable/2-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                     </li>
-                     <li class="portfolio-list__items-box">
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/2",
-                           "mobile":"@img/draggable/2-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                     </li>
-                     <li class="portfolio-list__items-box">
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/2",
-                           "mobile":"@img/draggable/2-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                     </li>
-                     <li class="portfolio-list__items-box">
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/2",
-                           "mobile":"@img/draggable/2-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
-                           },
-                           "type": {
-                           "webp": ".webp",
-                           "jpg": ".jpg"
-                           },
-                           "alt":"a portfolio work"
-                           })
-                        </a>
-                        <a class="portfolio-list__item" href="">
-                           @@include('html/picture.html', {
-                           "path": {
-                           "desktop":"@img/draggable/1",
-                           "mobile":"@img/draggable/1-mobile"
+                           "desktop":"@img/draggable/20",
+                           "mobile":"@img/draggable/20-mobile"
                            },
                            "type": {
                            "webp": ".webp",
@@ -1415,6 +1425,8 @@
          </div>
       </div>
    </main>
+
+@@include('html/footer.html')
 
 </body>
 

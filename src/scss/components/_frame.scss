@@ -1,8 +1,7 @@
 .frame-box {
    position: absolute;
    display: grid;
-   width: 100%;
-   height: 100%;
+   inset: 0;
    transform-style: preserve-3d;
    transition: var(--transition), opacity .75s ease;
    will-change: transform;
@@ -15,8 +14,8 @@
          position: absolute;
          z-index: -1;
          display: block;
-         background-color: var(--clr-bg-black);
-         opacity: 0.87;
+         background-color: var(--clr-bg-dark);
+         opacity: 0.80;
          content: "";
          inset: 0;
       }
@@ -84,6 +83,17 @@
             height: inherit;
             object-fit: cover;
          }
+      }
+   }
+
+   &__text-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+
+      &_left {
+         padding-left: 7vw;
       }
    }
 }
