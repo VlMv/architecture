@@ -13,10 +13,10 @@ body {
    background-color: var(--clr-bg-dark);
 }
 
-// main {
-//    width: 100%;
-//    height: 100%;
-// }
+.main-hidden {
+   opacity: 0;
+   transition: opacity var(--transition);
+}
 
 .container {
    position: fixed;

@@ -25,7 +25,7 @@
       position: absolute;
       width: calc(var(--viewport-size-index) * 300);
       height: calc(var(--viewport-size-index) * 300);
-      background-color: #000;
+      background-color: var(--clr-bg-dark);
       background-image: url("@img/INFINITY-copy.svg");
       background-repeat: no-repeat;
       background-position: 49% 50%;
@@ -42,10 +42,6 @@
       mask-repeat: no-repeat;
       mask-composite: exclude;
    }
-
-   // &_pointer {
-   //    pointer-events: none;
-   // }
 
    &__content {
       position: relative;

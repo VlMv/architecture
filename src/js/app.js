@@ -127,14 +127,55 @@ navLinks.forEach(function (navLink) {
 });
 
 
+const logoSpan = document.querySelector('.logo__span');
+const mainNav = document.querySelector('.main-nav');
+const menuButton = document.querySelector('.menu-button');
+const pageFooter = document.querySelector('.page-footer');
+
+let menuButtonActiveProperties = {
+   '--_clr-active': 'var(--clr-bg-dark)',
+   '--_shadow-offest-active': 0,
+   '--_top-position-active': '50%',
+   '--before-rotate-angle': '225deg',
+   '--after-rotate-angle': '315deg',
+
+   setActiveProperties: function (element) {
+      for (let key in this) {
+         element.style.setProperty(key, this[key]);
+      }
+   }
+};
+
+menuButton.onclick = function () {
+   let isMenuNotActive = !logoSpan.classList.contains('logo__span_active');
+
+   if (isMenuNotActive) {
+      logoSpan.classList.add('logo__span_active');
+      pageFooter.style.setProperty('--footer-translateY-active', 0);
+      mainNav.style.setProperty('--_nav-translateY-active', 0);
+      menuButtonActiveProperties.setActiveProperties(menuButton);
+   } else {
+      logoSpan.classList.remove('logo__span_active');
+      pageFooter.removeAttribute('style');
+      mainNav.removeAttribute('style');
+      menuButton.removeAttribute('style');
+   }
+};
+
+
+let main = document.querySelector('main');
+
 document.onreadystatechange = function () {
-   // page fully load
-   if (document.readyState === "complete") {
+   if (document.readyState === "complete") { //при загрузке страницы
       setTimeout(() => {
          window.scrollTo(0, 1);
       }, 0);
-      // setTimeout(function () {
-      //    document.getElementById('loader').style.display = 'none';
-      // }, 1000);
+      setTimeout(function () {
+         main.style.opacity = 1;
+      }, 100)
    }
 }
+
+
+
+// делаем маски

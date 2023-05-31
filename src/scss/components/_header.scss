@@ -35,14 +35,20 @@
    z-index: 1;
 
    &__link {
-      color: var(--clr-black);
+      color: var(--clr-bg-dark);
       font-weight: 300;
       font-size: 20px;
       font-family: var(--font-raleway);
       letter-spacing: 0.2em;
       text-transform: uppercase;
+   }
 
-      & span {
+   &__span {
+      color: var(--clr-font-white);
+      font-weight: 600;
+      transition: color 0.85s;
+
+      &_active {
          color: var(--clr-accent);
          font-weight: 700;
       }
@@ -72,7 +78,9 @@
          hsl(0deg 0% 95%) 100%);
    border-bottom-right-radius: 20px;
    border-bottom-left-radius: 20px;
+   transform: translateY(var(--_nav-translateY-active, -100%));
    transform-style: preserve-3d;
+   transition: transform 0.85s;
    padding-inline: 50px;
 
    &__list {
@@ -103,7 +111,7 @@
          font-family: var(--font-roboto);
          letter-spacing: 0.05em;
          text-transform: uppercase;
-         transition: color var(--transition);
+         transition: color 0.85s;
       }
    }
 }
@@ -111,11 +119,11 @@
 .menu-button {
    position: relative;
    display: grid;
-   place-items: center;
    width: 30px;
    height: 14px;
    background: transparent;
    border: none;
+   place-items: center;
 
    &::before,
    &::after {
@@ -123,32 +131,34 @@
       left: 0;
       width: 25px;
       height: 2px;
-      background: var(--clr-black);
+      background: var(--_clr-active, var(--clr-font-white));
       backface-visibility: hidden;
       transition: top 0.85s, transform 0.85s, box-shadow 0.85s;
       content: "";
    }
 
    &::before {
-      top: 0;
-      box-shadow: #000 0 6px 0 0;
+      top: var(--_top-position-active, 0);
+      box-shadow: var(--_clr-active, var(--clr-font-white)) 0 var(--_shadow-offest-active, 6px) 0 0;
+      transform: rotate(var(--before-rotate-angle));
    }
 
    &::after {
-      top: calc(100% - 2px);
+      top: var(--_top-position-active, calc(100% - 2px));
+      transform: rotate(var(--after-rotate-angle));
    }
 
-   &:hover {
-      &::before {
-         top: 50%;
-         box-shadow: transparent 0 0 0 0;
-         transform: rotate(225deg);
-      }
+   // &:hover {
+   //    &::before {
+   //       top: 50%;
+   //       box-shadow: transparent 0 0 0 0;
+   //       transform: rotate(225deg);
+   //    }
 
-      &::after {
-         top: 50%;
-         transform: rotate(315deg);
-      }
-   }
+   //    &::after {
+   //       top: 50%;
+   //       transform: rotate(315deg);
+   //    }
+   // }
 
 }
