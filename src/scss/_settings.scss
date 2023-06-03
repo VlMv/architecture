@@ -50,5 +50,9 @@ select {
 }
 
 .hidden {
-   display: none;
+   visibility: hidden !important;
+}
+
+.overflow {
+   overflow: hidden !important;
 }

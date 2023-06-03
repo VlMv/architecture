@@ -1,3 +1,19 @@
+let main = document.querySelector('main');
+let loader = document.querySelector('.loader');
+
+document.onreadystatechange = function () {
+   if (document.readyState === "complete") { //при загрузке страницы
+      setTimeout(() => {
+         window.scrollTo(0, 1);
+      }, 0);
+      setTimeout(function () {
+         loader.style.display = 'none';
+         main.style.opacity = 1;
+      }, 100)
+   }
+}
+
+
 let frames = document.querySelectorAll('.frame-box');
 const bodyPage = document.querySelector('body');
 
@@ -8,7 +24,7 @@ let zDistancesArray = [];
 
 let setBodyHeight = function () {
    let viewportHeight = window.innerHeight;
-   let bodyHeight = (frames.length * zDepthDistance / zChangeSpeedMultiplier) + viewportHeight; // + высота viewport чтобы последний фрейм остановился на Z = 0 от экрана)
+   let bodyHeight = (frames.length * zDepthDistance / zChangeSpeedMultiplier) + viewportHeight + 1; // "+ высота viewport" зафиксировать последний фрейм на z~0px, "+ 1" костыль draggable для мобильных устройств
    bodyPage.style.setProperty('--z-depth', bodyHeight + 'px');
 }
 
@@ -26,7 +42,7 @@ window.onload = function () {
    Draggable.create(portfolioGalleryList, {
       bounds: portfolioGalleryFrame,
       inertia: true,
-      allowNativeTouchScrolling: false,
+      allowNativeTouchScrolling: true,
       allowEventDefault: true
    })
 }
@@ -41,7 +57,6 @@ window.onresize = function () {
 let lastScrollPosition = 0;
 
 window.onscroll = function () {
-
    let scrollTop = document.documentElement.scrollTop;
    let positionsDelta = lastScrollPosition - scrollTop;
    lastScrollPosition = scrollTop;
@@ -63,15 +78,15 @@ window.onscroll = function () {
       }
 
 
-
       // if (frame.hasAttribute('data-masked-image') && (zDistancesArray[i] >= zDepthDistance * 1.5)) {
       //    maskedItem.classList.add('colored-img_masked');
       // }
 
+
       let isPortfolioFrame = i === frames.length - 1;
       let portfolioGalleryVisibleRange = zDistancesArray[portfolioFrameIndex] >= zDepthDistance * 6.5;
-      let fiveFramesVisibleRange = zDistancesArray[i] >= zDepthDistance * 4;
-      let frameBeyondScreenRange = zDistancesArray[i] <= Math.abs(zDepthDistance);
+      let framesVisibleRange = zDistancesArray[i] >= zDepthDistance * 6;
+      let frameBeyondScreenRange = zDistancesArray[i] <= Math.abs(zDepthDistance) * 3;
 
       if (isPortfolioFrame) {
          if (portfolioGalleryVisibleRange) {
@@ -79,9 +94,8 @@ window.onscroll = function () {
          } else {
             frame.classList.add('hidden');
          }
-
       } else {
-         if (fiveFramesVisibleRange && frameBeyondScreenRange) {
+         if (framesVisibleRange && frameBeyondScreenRange) {
             frame.classList.remove('hidden');
          } else {
             frame.classList.add('hidden');
@@ -113,7 +127,6 @@ let navScrollData = {
             if (isTheLastFrame) {
                return topScrollHeight += Math.abs(zDepthDistance) // потому что расстояние между последним и предпоследним фреймом больше на значение zDepthDistance
             }
-
             return topScrollHeight
          }
       }
@@ -161,21 +174,3 @@ menuButton.onclick = function () {
       menuButton.removeAttribute('style');
    }
 };
-
-
-let main = document.querySelector('main');
-
-document.onreadystatechange = function () {
-   if (document.readyState === "complete") { //при загрузке страницы
-      setTimeout(() => {
-         window.scrollTo(0, 1);
-      }, 0);
-      setTimeout(function () {
-         main.style.opacity = 1;
-      }, 100)
-   }
-}
-
-
-
-// делаем маски

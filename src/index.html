@@ -6,7 +6,8 @@
 <body>
 
    @@include('html/header.html')
-
+   <div class="loader">
+   </div>
    <main class="main-hidden">
       <div class="container">
          <div class="main-gallery">
@@ -22,8 +23,8 @@
                   <div class="frame-box__content frame-box__content_left">
                      @@include('html/picture.html', {
                      "path": {
-                     "desktop":"@img/scroll/hero",
-                     "mobile":"@img/scroll/hero-mobile"
+                     "desktop":"@img/scroll/hero-1",
+                     "mobile":"@img/scroll/hero-1-mobile"
                      },
                      "type": {
                      "webp": ".webp",
@@ -37,8 +38,8 @@
                   <div class="frame-box__content frame-box__content_horizontal frame-box__content_horizontal_right">
                      @@include('html/picture.html', {
                      "path": {
-                     "desktop":"@img/scroll/hero-2",
-                     "mobile":"@img/scroll/hero-2-mobile"
+                     "desktop":"@img/scroll/hero-4",
+                     "mobile":"@img/scroll/hero-4-mobile"
                      },
                      "type": {
                      "webp": ".webp",
@@ -77,6 +78,9 @@
                      })
                   </div>
                </div>
+
+               <div class="frame-box"></div>
+
                <div class="frame-box frame-box_bg-clr">
                   <div class="frame-box__content frame-box__content_horizontal frame-box__content_horizontal_right">
                      @@include('html/picture.html', {
@@ -295,7 +299,7 @@
                <div class="frame-box"></div>
                <div class="frame-box"></div>
 
-               <div class="frame-box">
+               <div class="frame-box frame-box_bg-clr">
                   <div class="frame-box__content frame-box__content_right">
                      @@include('html/picture.html', {
                      "path": {
@@ -313,7 +317,7 @@
 
                <div class="frame-box"></div>
 
-               <div class="frame-box">
+               <div class="frame-box frame-box_bg-clr">
                   <div class="frame-box__content frame-box__content_left">
                      @@include('html/picture.html', {
                      "path": {
