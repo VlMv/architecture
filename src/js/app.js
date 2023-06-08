@@ -2,9 +2,10 @@ let main = document.querySelector('main');
 let loader = document.querySelector('.loader');
 
 document.onreadystatechange = function () {
-   if (document.readyState === "complete") { //при загрузке страницы
+   if (document.readyState === "complete") { // при загрузке страницы
       setTimeout(() => {
-         window.scrollTo(0, 1);
+         window.scrollTo(0, 1); // запуск onscroll логики
+         window.scrollTo(0, 0);
       }, 0);
       setTimeout(function () {
          loader.style.display = 'none';
@@ -53,7 +54,6 @@ window.onresize = function () {
 }
 
 
-// let maskedItem = document.querySelector('.colored-img');
 let lastScrollPosition = 0;
 
 window.onscroll = function () {
@@ -78,11 +78,6 @@ window.onscroll = function () {
       }
 
 
-      // if (frame.hasAttribute('data-masked-image') && (zDistancesArray[i] >= zDepthDistance * 1.5)) {
-      //    maskedItem.classList.add('colored-img_masked');
-      // }
-
-
       let isPortfolioFrame = i === frames.length - 1;
       let portfolioGalleryVisibleRange = zDistancesArray[portfolioFrameIndex] >= zDepthDistance * 6.5;
       let framesVisibleRange = zDistancesArray[i] >= zDepthDistance * 6;
@@ -100,6 +95,13 @@ window.onscroll = function () {
          } else {
             frame.classList.add('hidden');
          }
+      }
+
+
+      let isMaskedImageFrame = frame.hasAttribute('data-masked-image');
+      let isMaskRunRange = zDistancesArray[i] >= zDepthDistance;
+      if (isMaskedImageFrame && isMaskRunRange) {
+         frame.classList.add('frame-box_mask-active');
       }
    });
 }

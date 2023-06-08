@@ -52,6 +52,7 @@
             </section>
 
             <div class="frame-box"></div>
+            <div class="frame-box"></div>
 
             <section class="portfolio-works">
                <h2 class="visually-hidden">the studio portfolio</h2>
@@ -63,8 +64,8 @@
                      </div>
                   </div>
                </div>
-               <div class="frame-box frame-box_bg-clr">
-                  <div class="frame-box__content frame-box__content_left">
+               <div class="frame-box frame-box_bg-clr" data-masked-image>
+                  <div class="frame-box__content frame-box__content_left frame-box__content_mask frame-box__content_mask_portfolio-2">
                      @@include('html/picture.html', {
                      "path": {
                      "desktop":"@img/scroll/portfolio-2",
@@ -76,17 +77,11 @@
                      },
                      "alt":"the studio portoflio example"
                      })
-                  </div>
-               </div>
 
-               <div class="frame-box"></div>
-
-               <div class="frame-box frame-box_bg-clr">
-                  <div class="frame-box__content frame-box__content_horizontal frame-box__content_horizontal_right">
                      @@include('html/picture.html', {
                      "path": {
-                     "desktop":"@img/scroll/portfolio",
-                     "mobile":"@img/scroll/portfolio-mobile"
+                     "desktop":"@img/scroll/portfolio-2-sketch",
+                     "mobile":"@img/scroll/portfolio-2-sketch-mobile"
                      },
                      "type": {
                      "webp": ".webp",
@@ -98,13 +93,57 @@
                </div>
 
                <div class="frame-box"></div>
+               <div class="frame-box"></div>
 
-               <div class="frame-box frame-box_bg-clr">
-                  <div class="frame-box__content frame-box__content_horizontal frame-box__content_horizontal_left">
+               <div class="frame-box frame-box_bg-clr" data-masked-image>
+                  <div class="frame-box__content frame-box__content_horizontal frame-box__content_horizontal_right frame-box__content_mask frame-box__content_mask_portfolio">
                      @@include('html/picture.html', {
                      "path": {
-                     "desktop":"@img/scroll/portfolio-1",
-                     "mobile":"@img/scroll/portfolio-1-mobile"
+                     "desktop":"@img/scroll/portfolio",
+                     "mobile":"@img/scroll/portfolio-mobile"
+                     },
+                     "type": {
+                     "webp": ".webp",
+                     "jpg": ".jpg"
+                     },
+                     "alt":"the studio portoflio example"
+                     })
+
+                     @@include('html/picture.html', {
+                     "path": {
+                     "desktop":"@img/scroll/portfolio-sketch",
+                     "mobile":"@img/scroll/portfolio-sketch-mobile"
+                     },
+                     "type": {
+                     "webp": ".webp",
+                     "jpg": ".jpg"
+                     },
+                     "alt":"the studio portoflio example"
+                     })
+                  </div>
+               </div>
+
+               <div class="frame-box"></div>
+               <div class="frame-box"></div>
+
+               <div class="frame-box frame-box_bg-clr" data-masked-image>
+                  <div class="frame-box__content frame-box__content_horizontal frame-box__content_horizontal_left frame-box__content_mask frame-box__content_mask_portfolio-3">
+                     @@include('html/picture.html', {
+                     "path": {
+                     "desktop":"@img/scroll/portfolio-3",
+                     "mobile":"@img/scroll/portfolio-3-mobile"
+                     },
+                     "type": {
+                     "webp": ".webp",
+                     "jpg": ".jpg"
+                     },
+                     "alt":"the studio portoflio example"
+                     })
+
+                     @@include('html/picture.html', {
+                     "path": {
+                     "desktop":"@img/scroll/portfolio-3-sketch",
+                     "mobile":"@img/scroll/portfolio-3-sketch-mobile"
                      },
                      "type": {
                      "webp": ".webp",

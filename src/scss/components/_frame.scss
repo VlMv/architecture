@@ -21,6 +21,10 @@
       }
    }
 
+   &_mask-active {
+      --mask-color: mask-color;
+   }
+
    &__masked-screen {
       position: absolute;
       width: calc(var(--viewport-size-index) * 300);
@@ -69,6 +73,43 @@
          }
       }
 
+      &_mask {
+         display: grid;
+
+         &_portfolio {
+            --mask-image: url("@img/mask-45.png");
+            --animation-steps: steps(44);
+         }
+
+         &_portfolio-2 {
+            --mask-image: url("@img/mask-32.png");
+            --animation-steps: steps(32);
+         }
+
+         &_portfolio-3 {
+            --mask-image: url("@img/mask-47.png");
+            --animation-steps: steps(48);
+         }
+
+         &>picture {
+            grid-area: 1/-1;
+
+            &:nth-of-type(2) {
+               -webkit-mask-image: var(--mask-image);
+               -webkit-mask-size: cover;
+               -webkit-mask-repeat: no-repeat;
+               -webkit-mask-position: 0% 0%;
+               -webkit-mask-origin: border-box;
+               mask-image: var(--mask-image);
+               mask-size: cover;
+               mask-repeat: no-repeat;
+               mask-position: 0% 0%;
+               mask-origin: border-box;
+               animation: var(--mask-color) 2s var(--animation-steps) forwards;
+            }
+         }
+      }
+
       & picture {
          display: block;
          width: 100%;
@@ -91,5 +132,17 @@
       &_left {
          padding-left: 7vw;
       }
+   }
+}
+
+@keyframes mask-color {
+   0% {
+      -webkit-mask-position: 0% 0%;
+      mask-position: 0% 0%;
+   }
+
+   100% {
+      -webkit-mask-position: 100% 0%;
+      mask-position: 100% 0%;
    }
 }

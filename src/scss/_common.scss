@@ -94,12 +94,26 @@ body {
    place-content: center;
 
    &::before {
+      grid-area: 1/-1;
       width: 50px;
       height: 50px;
       background-color: var(--clr-font-white);
       border-radius: 50%;
-      animation: loader 1s infinite ease-in-out;
+      animation: loader 1.5s infinite ease-in-out;
       content: "";
+   }
+
+   &::after {
+      grid-area: 1/-1;
+      align-self: center;
+      color: var(---clr-font-white);
+      font-weight: 300;
+      font-size: calc(var(--viewport-size-index) * 0.6);
+      font-family: var(--font-raleway);
+      text-align: center;
+      text-transform: uppercase;
+      mix-blend-mode: difference;
+      content: "loading";
    }
 }
 

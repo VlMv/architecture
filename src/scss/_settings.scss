@@ -1,4 +1,4 @@
-html :where(*) {
+:where(*) {
    box-sizing: border-box;
    margin: 0;
    padding: 0;
@@ -53,6 +53,3 @@ select {
    visibility: hidden !important;
 }
 
-.overflow {
-   overflow: hidden !important;
-}

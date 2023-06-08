@@ -24,7 +24,8 @@
                "mask-size",
                "mask-position",
                "mask-repeat",
-               "mask-composite"
+               "mask-composite",
+               "mask-origin"
             ]
          }
       ]
