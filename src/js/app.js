@@ -99,7 +99,7 @@ window.onscroll = function () {
 
 
       let isMaskedImageFrame = frame.hasAttribute('data-masked-image');
-      let isMaskRunRange = zDistancesArray[i] >= zDepthDistance;
+      let isMaskRunRange = zDistancesArray[i] >= zDepthDistance * 0.7;
       if (isMaskedImageFrame && isMaskRunRange) {
          frame.classList.add('frame-box_mask-active');
       }

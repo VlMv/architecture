@@ -106,9 +106,9 @@ body {
    &::after {
       grid-area: 1/-1;
       align-self: center;
-      color: var(---clr-font-white);
+      color: var(--clr-font-white);
       font-weight: 300;
-      font-size: calc(var(--viewport-size-index) * 0.6);
+      font-size: 10px;
       font-family: var(--font-raleway);
       text-align: center;
       text-transform: uppercase;

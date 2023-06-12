@@ -16,17 +16,19 @@ export const imgRetina = () => {
 
       .pipe(app.plugins.newer(app.path.build.img)) // check existing images
       .pipe(webp()) // create webp
+            .pipe(app.plugins.newer(app.path.build.img))
       .pipe(app.gulp.src(app.path.src.img))
-      .pipe(app.plugins.newer(app.path.build.img))
       .pipe(
          app.plugins.if(
             app.buildSet,
-            imagemin({
-               progressive: true,
-               svgoPlugins: [{ removeViewBox: false }],
-               interlaced: true,
-               optimizationLevel: 3 // 0 - 7
-            }))
+            imagemin(
+               {
+                  progressive: true,
+                  svgoPlugins: [{ removeViewBox: false }],
+                  interlaced: true,
+                  optimizationLevel: 5 // 0 - 7
+               }
+            ))
       )
       // .pipe(rename({ // add retina suffix
       //    suffix: "@2x"
@@ -66,7 +68,7 @@ export const img = () => {
                progressive: true,
                svgoPlugins: [{ removeViewBox: false }],
                interlaced: true,
-               optimizationLevel: 3 // 0 - 7
+               optimizationLevel: 4 // 0 - 7
             }))
       )
       .pipe(app.gulp.dest(app.path.build.img))
@@ -112,7 +114,7 @@ export const favicon = () => {
                progressive: true,
                svgoPlugins: [{ removeViewBox: false }],
                interlaced: true,
-               optimizationLevel: 3 // 0 - 7
+               optimizationLevel: 4 // 0 - 7
             }))
       )
       .pipe(
@@ -148,7 +150,7 @@ export const favicon = () => {
                progressive: true,
                svgoPlugins: [{ removeViewBox: false }],
                interlaced: true,
-               optimizationLevel: 3 // 0 - 7
+               optimizationLevel: 4 // 0 - 7
             }))
       )
       .pipe(
@@ -184,7 +186,7 @@ export const favicon = () => {
                progressive: true,
                svgoPlugins: [{ removeViewBox: false }],
                interlaced: true,
-               optimizationLevel: 3 // 0 - 7
+               optimizationLevel: 4 // 0 - 7
             }))
       )
       .pipe(
