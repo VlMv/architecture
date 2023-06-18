@@ -17,12 +17,20 @@
          background-color: var(--clr-bg-dark);
          opacity: 0.80;
          content: "";
-         inset: 0;
+         inset: calc(-10 * var(--viewport-size-index));
+      }
+   }
+
+   &_portrait {
+      display: none;
+
+      @media (orientation: portrait) and (width<=768px) {
+         display: block;
       }
    }
 
    &_mask-active {
-      --mask-color: mask-color;
+      --mask-animation-active: mask-position-animation;
    }
 
    &__masked-screen {
@@ -30,17 +38,17 @@
       width: calc(var(--viewport-size-index) * 300);
       height: calc(var(--viewport-size-index) * 300);
       background-color: var(--clr-bg-dark);
-      background-image: url("@img/INFINITY-copy.svg");
+      background-image: url("@img/screen-bg.svg");
       background-repeat: no-repeat;
-      background-position: 49% 50%;
-      background-size: 15%;
+      background-position: 50%;
+      background-size: 16%;
       transform-style: preserve-3d;
-      -webkit-mask-image: linear-gradient(#000 0 0), url("@img/INFINITY.svg");
-      -webkit-mask-size: 100%, 15%;
-      -webkit-mask-position: 49% 50%;
+      -webkit-mask-image: linear-gradient(#000 0 0), url("@img/screen-mask.svg");
+      -webkit-mask-size: 100%, 16%;
+      -webkit-mask-position: 50%;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-composite: xor;
-      mask-image: linear-gradient(#000 0 0), url("@img/INFINITY.svg");
+      mask-image: linear-gradient(#000 0 0), url("@img/screen-mask.svg");
       mask-size: 100%, 15%;
       mask-position: 50%;
       mask-repeat: no-repeat;
@@ -48,16 +56,24 @@
    }
 
    &__content {
+      --offset-ratio: 2;
+      --offset-ratio-horizontal: 2;
+
       position: relative;
       width: calc(var(--viewport-size-index) * var(--small-size-index));
       height: calc(var(--viewport-size-index) * var(--big-size-index));
 
+      @media (orientation: portrait) and (width<=768px) {
+         --offset-ratio: 3;
+         --offset-ratio-horizontal: 7;
+      }
+
       &_left {
-         right: calc(var(--small-size-index) / 2 * var(--viewport-size-index) + var(--shift));
+         right: calc(var(--small-size-index) / var(--offset-ratio) * var(--viewport-size-index) + var(--shift));
       }
 
       &_right {
-         left: calc(var(--small-size-index) / 2 * var(--viewport-size-index) + var(--shift));
+         left: calc(var(--small-size-index) / var(--offset-ratio) * var(--viewport-size-index) + var(--shift));
       }
 
       &_horizontal {
@@ -65,11 +81,11 @@
          height: calc(var(--viewport-size-index) * var(--small-size-index));
 
          &_left {
-            right: calc(var(--big-size-index) / 2 * var(--viewport-size-index) + var(--shift));
+            right: calc(var(--big-size-index) / var(--offset-ratio-horizontal) * var(--viewport-size-index) + var(--shift));
          }
 
          &_right {
-            left: calc(var(--big-size-index) / 2 * var(--viewport-size-index) + var(--shift));
+            left: calc(var(--big-size-index) / var(--offset-ratio-horizontal) * var(--viewport-size-index) + var(--shift));
          }
       }
 
@@ -77,24 +93,34 @@
          display: grid;
 
          &_portfolio {
-            --mask-image: url("@img/mask-45.png");
+            --mask-image: url("@img/masks/mask-45.png");
             --animation-steps: steps(44);
          }
 
          &_portfolio-2 {
-            --mask-image: url("@img/mask-32.png");
+            --mask-image: url("@img/masks/mask-32.png");
             --animation-steps: steps(32);
          }
 
          &_portfolio-3 {
-            --mask-image: url("@img/mask-47.png");
+            --mask-image: url("@img/masks/mask-47.png");
             --animation-steps: steps(48);
+         }
+
+         &_concept {
+            --mask-image: url("@img/masks/mask-concept-45.png");
+            --animation-steps: steps(45);
+
+            &-wide {
+               --mask-image: url("@img/masks/mask-concept-45-wide.png");
+            }
          }
 
          &>picture {
             grid-area: 1/-1;
 
             &:nth-of-type(2) {
+               animation: var(--mask-animation-active) 2s var(--animation-steps) forwards;
                -webkit-mask-image: var(--mask-image);
                -webkit-mask-size: cover;
                -webkit-mask-repeat: no-repeat;
@@ -105,7 +131,6 @@
                mask-repeat: no-repeat;
                mask-position: 0% 0%;
                mask-origin: border-box;
-               animation: var(--mask-color) 2s var(--animation-steps) forwards;
             }
          }
       }
@@ -129,13 +154,33 @@
       justify-content: center;
       height: 100%;
 
+      @media (orientation: portrait) and (width<=768px) {
+         position: relative;
+         isolation: isolate;
+
+         &::after {
+            position: absolute;
+            inset: 0;
+            left: -2vw;
+            z-index: -1;
+            display: block;
+            background-color: var(--clr-bg-dark);
+            opacity: 0.80;
+            content: "";
+         }
+      }
+
       &_left {
          padding-left: 7vw;
+
+         @media (orientation: portrait) and (width<=768px) {
+            margin-left: 17vw;
+         }
       }
    }
 }
 
-@keyframes mask-color {
+@keyframes mask-position-animation {
    0% {
       -webkit-mask-position: 0% 0%;
       mask-position: 0% 0%;

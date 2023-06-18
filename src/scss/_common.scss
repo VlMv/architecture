@@ -77,9 +77,13 @@ body {
    margin-bottom: 3vh;
    color: var(--clr-font-white);
    font-weight: 300;
-   font-size: calc(var(--viewport-size-index) * 0.8);
+   font-size: max(18px, calc(var(--viewport-size-index) * 0.8));
    font-family: var(--font-raleway);
    line-height: 1.75;
+
+   @media (orientation: portrait) and (width<=768px) {
+      max-width: 60vw;
+   }
 
    &_left {
       text-align: right;

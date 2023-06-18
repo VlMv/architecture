@@ -91,6 +91,10 @@
       justify-content: center;
       height: 100%;
       padding: 8px 0;
+
+      @media (width <=700px) {
+         gap: 2vh 5vw;
+      }
    }
 
    &__item {
@@ -107,7 +111,7 @@
          padding: 5px;
          color: var(--clr-black);
          font-weight: 300;
-         font-size: calc(var(--viewport-size-index) * 0.63);
+         font-size: max(12px, calc(var(--viewport-size-index) * 0.63));
          font-family: var(--font-roboto);
          letter-spacing: 0.05em;
          text-transform: uppercase;

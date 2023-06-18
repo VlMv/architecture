@@ -22,7 +22,7 @@ export const path = {
       img: `${srcFldr}/img/**/*.{jpeg,jpg,png,gif,webp}`,
       // doesn't convert background images to WEBP
       imgNoBg: [`${srcFldr}/img/**/*.{jpeg,jpg,png,gif,webp}`,
-      `!${srcFldr}/img/background/*.{jpeg,jpg,png,gif,webp}`],
+      `!${srcFldr}/img/background/*.{jpeg,jpg,png,gif,webp}`, `!${srcFldr}/img/masks/*.png`],
       // doesn't copy svg images that for sprite
       svg: [`${srcFldr}/img/**/*.svg`, `!${srcFldr}/img/svg-icons/*.svg`],
       favicon: `${srcFldr}/img/favicon/*.svg`,

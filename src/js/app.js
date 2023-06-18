@@ -23,20 +23,36 @@ const zChangeSpeedMultiplier = -5; // множитель на прокрутку
 let zDistancesArray = [];
 
 
-let setBodyHeight = function () {
+function setBodyHeight() {
    let viewportHeight = window.innerHeight;
    let bodyHeight = (frames.length * zDepthDistance / zChangeSpeedMultiplier) + viewportHeight + 1; // "+ высота viewport" зафиксировать последний фрейм на z~0px, "+ 1" костыль draggable для мобильных устройств
    bodyPage.style.setProperty('--z-depth', bodyHeight + 'px');
 }
 
 
+function setFramePortrait() {
+   const MediaQueryTablet = window.matchMedia('(max-width: 768px)');
+   const MediaQueryPortrait = window.matchMedia('(orientation: portrait)');
+
+   if (MediaQueryTablet.matches && MediaQueryPortrait.matches) {
+      let framePortraits = document.querySelectorAll('.frame-box_portrait');
+      framePortraits.forEach(function (framePortrait) {
+         framePortrait.classList.add('frame-box');
+      });
+      frames = document.querySelectorAll('.frame-box');
+   }
+}
+
+
 window.onload = function () {
+   setBodyHeight();
+   setFramePortrait();
+
    for (let i = 0; i < frames.length; i++) {
       zDistancesArray.push(i * zDepthDistance);
    }
    zDistancesArray[frames.length - 1] -= 1000; // последний элемент стоит дальше, чтоб предыдущий не перекрывал интерактив draggable в portfolio-gallery
 
-   setBodyHeight();
 
    const portfolioGalleryList = document.querySelector('.portfolio-list');
    const portfolioGalleryFrame = document.querySelector('.frame-box:last-of-type');
@@ -99,9 +115,16 @@ window.onscroll = function () {
 
 
       let isMaskedImageFrame = frame.hasAttribute('data-masked-image');
-      let isMaskRunRange = zDistancesArray[i] >= zDepthDistance * 0.7;
+      let isMaskRunRange = zDistancesArray[i] >= zDepthDistance;
       if (isMaskedImageFrame && isMaskRunRange) {
          frame.classList.add('frame-box_mask-active');
+      }
+
+
+      let portfolioFrame = frames[portfolioFrameIndex];
+      let isTextVisibleRange = zDistancesArray[i] >= 0;
+      if (portfolioFrame && isTextVisibleRange) {
+         portfolioFrame.style.setProperty('--_text-opacity', 1);
       }
    });
 }
