@@ -1,47 +1,13 @@
 let main = document.querySelector('main');
 let loader = document.querySelector('.loader');
 
-document.onreadystatechange = function () {
-   if (document.readyState === "complete") { // при загрузке страницы
-      setTimeout(() => {
-         window.scrollTo(0, 1); // запуск onscroll логики
-         window.scrollTo(0, 0);
-      }, 0);
-      setTimeout(function () {
-         loader.style.display = 'none';
-         main.style.opacity = 1;
-      }, 100)
-   }
-}
-
-
 let frames = document.querySelectorAll('.frame-box');
 const bodyPage = document.querySelector('body');
 
 const zDepthDistance = -1000;
-const zChangeSpeedMultiplier = -5; // множитель на прокрутку transform по оси Z по сравнению с прокруткой scroll в body (скорость z скролла)
+// множитель на прокрутку transform по оси Z по сравнению с прокруткой scroll в body (скорость z скролла)
+const zChangeSpeedMultiplier = -5;
 let zDistancesArray = [];
-
-
-function setBodyHeight() {
-   let viewportHeight = window.innerHeight;
-   let bodyHeight = (frames.length * zDepthDistance / zChangeSpeedMultiplier) + viewportHeight + 1; // "+ высота viewport" зафиксировать последний фрейм на z~0px, "+ 1" костыль draggable для мобильных устройств
-   bodyPage.style.setProperty('--z-depth', bodyHeight + 'px');
-}
-
-
-function setFramePortrait() {
-   const MediaQueryTablet = window.matchMedia('(max-width: 768px)');
-   const MediaQueryPortrait = window.matchMedia('(orientation: portrait)');
-
-   if (MediaQueryTablet.matches && MediaQueryPortrait.matches) {
-      let framePortraits = document.querySelectorAll('.frame-box_portrait');
-      framePortraits.forEach(function (framePortrait) {
-         framePortrait.classList.add('frame-box');
-      });
-      frames = document.querySelectorAll('.frame-box');
-   }
-}
 
 
 window.onload = function () {
@@ -51,14 +17,14 @@ window.onload = function () {
    for (let i = 0; i < frames.length; i++) {
       zDistancesArray.push(i * zDepthDistance);
    }
-   zDistancesArray[frames.length - 1] -= 1000; // последний элемент стоит дальше, чтоб предыдущий не перекрывал интерактив draggable в portfolio-gallery
-
+   // последний элемент стоит дальше, чтоб предыдущий не перекрывал интерактив draggable в portfolio-gallery
+   zDistancesArray[frames.length - 1] -= 1000;
 
    const portfolioGalleryList = document.querySelector('.portfolio-list');
    const portfolioGalleryFrame = document.querySelector('.frame-box:last-of-type');
+
    Draggable.create(portfolioGalleryList, {
       bounds: portfolioGalleryFrame,
-      inertia: true,
       allowNativeTouchScrolling: true,
       allowEventDefault: true
    })
@@ -67,6 +33,29 @@ window.onload = function () {
 
 window.onresize = function () {
    setBodyHeight();
+}
+
+
+function setBodyHeight() {
+   let viewportHeight = window.innerHeight;
+   // "+ высота viewport" зафиксировать последний фрейм на z~0px, "+ 1" костыль draggable для мобильных устройств
+   let bodyHeight = (frames.length * zDepthDistance / zChangeSpeedMultiplier) + viewportHeight + 1;
+
+   bodyPage.style.setProperty('--z-depth', bodyHeight + 'px');
+}
+
+
+function setFramePortrait() {
+   const mediaQueryTablet = window.matchMedia('(max-width: 768px)');
+   const mediaQueryPortrait = window.matchMedia('(orientation: portrait)');
+
+   if (mediaQueryTablet.matches && mediaQueryPortrait.matches) {
+      let framePortraits = document.querySelectorAll('.frame-box_portrait');
+      framePortraits.forEach(function (framePortrait) {
+         framePortrait.classList.add('frame-box');
+      });
+      frames = document.querySelectorAll('.frame-box');
+   }
 }
 
 
@@ -100,22 +89,17 @@ window.onscroll = function () {
       let frameBeyondScreenRange = zDistancesArray[i] <= Math.abs(zDepthDistance) * 3;
 
       if (isPortfolioFrame) {
-         if (portfolioGalleryVisibleRange) {
-            frame.classList.remove('hidden');
-         } else {
-            frame.classList.add('hidden');
-         }
+         portfolioGalleryVisibleRange ?
+            frame.classList.remove('hidden') : frame.classList.add('hidden');
       } else {
-         if (framesVisibleRange && frameBeyondScreenRange) {
-            frame.classList.remove('hidden');
-         } else {
-            frame.classList.add('hidden');
-         }
+         (framesVisibleRange && frameBeyondScreenRange) ?
+            frame.classList.remove('hidden') : frame.classList.add('hidden');
       }
 
 
       let isMaskedImageFrame = frame.hasAttribute('data-masked-image');
       let isMaskRunRange = zDistancesArray[i] >= zDepthDistance;
+
       if (isMaskedImageFrame && isMaskRunRange) {
          frame.classList.add('frame-box_mask-active');
       }
@@ -123,6 +107,7 @@ window.onscroll = function () {
 
       let portfolioFrame = frames[portfolioFrameIndex];
       let isTextVisibleRange = zDistancesArray[i] >= 0;
+
       if (portfolioFrame && isTextVisibleRange) {
          portfolioFrame.style.setProperty('--_text-opacity', 1);
       }
@@ -131,8 +116,15 @@ window.onscroll = function () {
 
 
 const navLinks = document.querySelectorAll('.main-nav__item > a');
+
+navLinks.forEach(function (navLink) {
+   navLink.onclick = function () {
+      navScrollData.scrollToFrame(navLink);
+   }
+})
+
 let navScrollData = {
-   dataNames: ["data-portfolio-works", "data-about", "data-team", "data-concepts", "data-portfolio-gallery"],
+   dataNames: ['data-portfolio-works', 'data-about', 'data-team', 'data-concepts', 'data-portfolio-gallery'],
 
    scrollToFrame: function (navLink) {
       for (let i = 0; i < this.dataNames.length; i++) {
@@ -150,39 +142,20 @@ let navScrollData = {
             let topScrollHeight = i * Math.abs(zDepthDistance) / Math.abs(zChangeSpeedMultiplier);
 
             if (isTheLastFrame) {
-               return topScrollHeight += Math.abs(zDepthDistance) // потому что расстояние между последним и предпоследним фреймом больше на значение zDepthDistance
+               // расстояние между последним и предпоследним фреймом больше на значение zDepthDistance
+               return topScrollHeight += Math.abs(zDepthDistance)
             }
             return topScrollHeight
          }
       }
    }
-};
-
-navLinks.forEach(function (navLink) {
-   navLink.onclick = function () {
-      navScrollData.scrollToFrame(navLink);
-   }
-});
+}
 
 
 const logoSpan = document.querySelector('.logo__span');
 const mainNav = document.querySelector('.main-nav');
 const menuButton = document.querySelector('.menu-button');
 const pageFooter = document.querySelector('.page-footer');
-
-let menuButtonActiveProperties = {
-   '--_clr-active': 'var(--clr-bg-dark)',
-   '--_shadow-offest-active': 0,
-   '--_top-position-active': '50%',
-   '--before-rotate-angle': '225deg',
-   '--after-rotate-angle': '315deg',
-
-   setActiveProperties: function (element) {
-      for (let key in this) {
-         element.style.setProperty(key, this[key]);
-      }
-   }
-};
 
 menuButton.onclick = function () {
    let isMenuNotActive = !logoSpan.classList.contains('logo__span_active');
@@ -198,4 +171,34 @@ menuButton.onclick = function () {
       mainNav.removeAttribute('style');
       menuButton.removeAttribute('style');
    }
-};
+}
+
+let menuButtonActiveProperties = {
+   '--_clr-active': 'var(--clr-bg-dark)',
+   '--_shadow-offest-active': 0,
+   '--_top-position-active': '50%',
+   '--before-rotate-angle': '225deg',
+   '--after-rotate-angle': '315deg',
+
+   setActiveProperties: function (element) {
+      for (let key in this) {
+         element.style.setProperty(key, this[key]);
+      }
+   }
+}
+
+
+document.onreadystatechange = function () {
+   if (document.readyState === 'complete') {
+      setTimeout(() => {
+         // запуск onscroll логики
+         window.scrollTo(0, 1);
+         window.scrollTo(0, 0);
+      }, 0);
+      setTimeout(function () {
+         loader.style.display = 'none';
+         main.style.opacity = 1;
+      }, 1000)
+   }
+}
+
