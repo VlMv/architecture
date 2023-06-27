@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 48 48" version="1" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 48 48">
-    <circle fill="#4CAF50" cx="24" cy="24" r="21"/>
-    <polygon fill="#CCFF90" points="34.6,14.6 21,28.2 15.4,22.6 12.6,25.4 21,33.8 37.4,17.4"/>
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="40" cy="40" r="40" fill="#050505"/>
+<path d="M37.24 33.56H44.024L61.688 79H54.136L49.336 66.648H31.8L27.064 79H19.448L37.24 33.56ZM47.928 61.336L40.632 41.432L33.08 61.336H47.928Z" fill="#F1F1F1"/>
 </svg>
