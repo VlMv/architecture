@@ -1,10 +1,10 @@
 .frame-box {
    position: absolute;
    display: grid;
-   inset: 0;
    transform-style: preserve-3d;
    transition: var(--transition), opacity .75s ease;
    will-change: transform;
+   inset: 0;
    place-items: center;
 
    &_bg-clr {
@@ -160,13 +160,13 @@
 
          &::after {
             position: absolute;
-            inset: 0;
             left: -2vw;
             z-index: -1;
             display: block;
             background-color: var(--clr-bg-dark);
             opacity: 0.80;
             content: "";
+            inset: 0;
          }
       }
 
