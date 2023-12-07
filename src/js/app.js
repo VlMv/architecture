@@ -20,13 +20,16 @@ let frames = document.querySelectorAll('.frame-box');
 let portfolioFrameIndex = frames.length - 1;
 let portfolioFrame = frames[portfolioFrameIndex];
 
+// The container for dynamic Z values of all frames
 let zDistances = [];
 let lastScrollPosition = 0;
 
 
 function setBodyHeight() {
    const viewportHeight = window.innerHeight;
-   // "+ высота viewport" зафиксировать последний фрейм на z~0px, "+ 1" костыль draggable для мобильных устройств
+
+   // "+ viewport height": to stop last frame at z = 0px
+   // "+ 1": a "crutch" for mobile devices
    const bodyHeight = (frames.length * Z_DEPTH_DISTANCE / Z_CHANGE_SPEED_MULTIPLIER) + viewportHeight + 1;
 
    bodyPage.style.setProperty('--z-depth', `${bodyHeight}px`);
@@ -54,8 +57,6 @@ function setFrames() {
    for (let i = 0; i < frames.length; i++) {
       zDistances.push(i * Z_DEPTH_DISTANCE);
    }
-
-   // последний элемент стоит дальше, чтоб предыдущий не перекрывал интерактив draggable в portfolio-gallery
    zDistances[portfolioFrameIndex] += Z_DEPTH_DISTANCE;
 
    Draggable.create(portfolioGalleryList, {
@@ -66,7 +67,8 @@ function setFrames() {
 }
 
 function removeLoader() {
-   // запуск scroll логики
+
+   // start scroll logic
    window.scrollTo(0, 1);
    window.scrollTo(0, 0);
 
