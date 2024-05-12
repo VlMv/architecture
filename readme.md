@@ -1,4 +1,4 @@
-# Architecture. Pet-проект.
+# [Architecture.](https://vlmv.github.io/architecture/) Pet-проект.
 VIMv
 
 ---
